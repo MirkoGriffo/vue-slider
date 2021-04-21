@@ -19,24 +19,27 @@
   <body>
     <div id="app">
       <section class="slider">
-        <div class="prev">
+        <div class="prev" @click="prevImage">
           <div class="fas fa-arrow-left"></div>
         </div>
         <div class="images">
-          <img
-            src="https://i.picsum.photos/id/1006/3000/2000.jpg?hmac=x83pQQ7LW1UTo8HxBcIWuRIVeN_uCg0cG6keXvNvM8g"
-            alt=""
-          />
+          <img :src="images[indexImage]" alt="lorem" />
         </div>
-        <div class="next">
+        <div class="next" @click="nextImage">
           <div class="fas fa-arrow-right"></div>
         </div>
 
         <nav>
-          <i class="fas fa-circle active"></i>
+          <i
+            v-for="(image, index) in images"
+            class="fas fa-circle"
+            :class="{active : index == indexImage}"
+            @click="setImage(index)"
+          ></i>
+          <!-- <i class="fas fa-circle active"></i>
           <i class="fas fa-circle"></i>
           <i class="fas fa-circle"></i>
-          <i class="fas fa-circle"></i>
+          <i class="fas fa-circle"></i> -->
         </nav>
       </section>
     </div>
