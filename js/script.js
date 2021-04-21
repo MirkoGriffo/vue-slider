@@ -11,6 +11,11 @@ const app = new Vue({
         ],
 
         indexImage: 0,
+        intervalId: 0,
+    },
+
+    created() {
+        this.startLoop()
     },
 
     methods: {
@@ -33,6 +38,17 @@ const app = new Vue({
 
         setImage(index) {
             this.indexImage = index;
+        },
+
+        startLoop() {
+            this.intervalId = setInterval(() => {
+
+                this.nextImage();
+            }, 3000)
+        },
+        stopLoop() {
+
+            clearInterval(this.intervalId);
         }
     }
 })

@@ -18,7 +18,11 @@
 
   <body>
     <div id="app">
-      <section class="slider">
+      <section
+        class="slider"
+        @mouseenter="stopLoop()"
+        @mouseleave="startLoop()"
+      >
         <div class="prev" @click="prevImage">
           <div class="fas fa-arrow-left"></div>
         </div>
